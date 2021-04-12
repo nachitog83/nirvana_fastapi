@@ -12,7 +12,6 @@ Description.
 │   ├── __init__.py
 │   ├── logging.conf
 │   ├── main.py
-│   ├── mock_api.py
 │   ├── models.py
 │   ├── routers.py
 │   └── test_main.py
