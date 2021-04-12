@@ -14,22 +14,47 @@ router = APIRouter()
 
 
 def get_api_results(url, id):
+    """[summary]
+
+    Args:
+        url ([str]): [External API url]
+        id ([int]): [member id]
+
+    Returns:
+        [json]: [API request response]
+    """
     r = requests.get(url.format(id))
     return r.json()
 
 
 @router.get("/", tags=["root"])
 async def read_root():
+    """[Root endpoint]
+
+    Returns:
+        [json]: [Welcome snippet]
+    """
     return {'Hello': 'Challenge'}
 
 
 @router.get("/insurance/", tags=["insurance"])
 async def get_insurance(id: int = Query(None)):
+    """[Calculate member's insurance true values]
+
+    Args:
+        id (int): [member id]. Defaults to Query(None).
+
+    Returns:
+        [Member object]: [Member instance with true health insurance values calculated]
+    """
     #from .mock_api import data
+    if id == None:
+        return JSONResponse(content='Enter valid member id')
+
     results = []
     responses = []
 
-    user = UserModel(id=id)
+    member = UserModel(id=id)
     for url in settings.URLS:
         responses.append(get_api_results(url, id))
 
@@ -45,8 +70,8 @@ async def get_insurance(id: int = Query(None)):
                     content=e
                 )
 
-    user.true_deductible, user.true_stop_loss, user.true_oop_max, \
+    member.true_deductible, member.true_stop_loss, member.true_oop_max, \
         = average_values(responses)
-    user.insurance_data = results
+    member.insurance_data = results
 
-    return user
+    return member

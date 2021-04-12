@@ -14,6 +14,16 @@ def most_repeated_values(query_list):
     return values
 
 def average_values(query_list):
+    """[Calculate average values]
+
+    Args:
+        query_list ([list]): [List of dictionaries containing
+        query results from three different APIs. Dict Keys are
+        'deductible', 'stop_loss', 'oop_max']
+
+    Returns:
+        [list]: [List of average values calculated]
+    """
     values = []
     int = defaultdict(list)
 

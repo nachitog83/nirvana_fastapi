@@ -6,6 +6,12 @@ logger = logging.getLogger(__name__)
 
 
 class InsuranceModel(BaseModel):
+    """[Insurance values model]
+
+    Raises:
+        ValueError: [Validate that deductible is not larger than oop_max]
+        ValueError: [Validate that oop_max is not larger than stop_loss]
+    """
     api: str
     deductible: float
     stop_loss: float
@@ -23,6 +29,9 @@ class InsuranceModel(BaseModel):
 
 
 class UserModel(BaseModel):
+    """[User Model]
+
+    """
     id: int
     true_deductible: float = 0
     true_stop_loss: float = 0
