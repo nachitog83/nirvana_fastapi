@@ -1,6 +1,24 @@
-# nirvana
+# Nirvana Health
 
-This project was generated via [manage-fastapi](https://ycd.github.io/manage-fastapi/)! :tada:
+Description.
+
+# Repository structure
+.
+├── app
+│   ├── config.py
+│   ├── controller.py
+│   ├── __init__.py
+│   ├── logging.conf
+│   ├── main.py
+│   ├── mock_api.py
+│   ├── models.py
+│   ├── routers.py
+│   └── test_main.py
+├── docker-compose.yaml
+├── Dockerfile
+├── LICENSE
+├── README.md
+└── requirements.txt
 
 ## License
 
