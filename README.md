@@ -2,7 +2,9 @@
 
 Description.
 
-# Repository structure
+## Repository structure
+
+```
 .
 ├── app
 │   ├── config.py
@@ -19,6 +21,7 @@ Description.
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+```
 
 ## License
 
