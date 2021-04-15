@@ -6,6 +6,16 @@ logger = logging.getLogger(__name__)
 
 
 def most_repeated_values(query_list):
+    """[Get most repeated values for each key in list of objects]
+
+    Args:
+        query_list ([list]): [List of dictionaries containing
+        query results from three different APIs. Dict Keys are
+        'deductible', 'stop_loss', 'oop_max']
+
+    Returns:
+        [list]: [List of values with results]
+    """
     values = []
     for k in query_list[0].keys():
         val, _ = (Counter(d[k] for d in query_list).most_common(1)[0])
@@ -35,3 +45,6 @@ def average_values(query_list):
         values.append(round(sum(val)/len(val), 2))
 
     return values
+
+def preent(x):
+    print(x)

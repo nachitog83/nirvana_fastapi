@@ -33,7 +33,7 @@ class UserModel(BaseModel):
 
     """
     id: int
-    true_deductible: float = 0
-    true_stop_loss: float = 0
-    true_oop_max: float = 0
-    insurance_data: List[InsuranceModel] = []
+    true_deductible: float
+    true_stop_loss: float
+    true_oop_max: float
+    insurance_data: List[InsuranceModel]
