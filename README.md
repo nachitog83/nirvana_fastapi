@@ -51,7 +51,8 @@ http://localhost:8000/insurance/?id=1
 ## Testing
 
 ```sh
-pytest
+docker exec -it nirvana_api pytest
+```
 
 
 ## License
