@@ -33,8 +33,8 @@ Ideally, I would have made the data gotten from the APIs persistent with a mongo
 ## Installation
 ### Install Docker and Docker Compose
 
-* [Docker][https://docs.docker.com/get-docker/]
-* [Docker Compose][https://docs.docker.com/compose/install/]
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Run FastAPI
 
@@ -46,11 +46,13 @@ sudo docker-compose up -d
 
 ## Usage example
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+http://localhost:8000/insurance/?id=1
 
-## Meta
+## Testing
 
-Ignacio Grosso – [@YourTwitter](https://twitter.com/dbader_org)
+```sh
+pytest
+
 
 ## License
 
