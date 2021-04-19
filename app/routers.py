@@ -54,8 +54,6 @@ async def get_insurance(id: int, method: Optional[str] = Query('most_repeated_va
     """
 
     from .mock_api import data
-    # if id == None:
-    #     return JSONResponse(content='Enter valid member id')
 
     if method == 'most_repeated_values' or method == 'average_values':
         pass
@@ -66,6 +64,7 @@ async def get_insurance(id: int, method: Optional[str] = Query('most_repeated_va
 
     results = []
     responses = []
+    errors = []
 
     try:
         for url in settings.URLS:
@@ -78,8 +77,9 @@ async def get_insurance(id: int, method: Optional[str] = Query('most_repeated_va
         try:
             results.append(InsuranceModel(api=url.split('?')[0], **response))
         except ValueError as e:
-            errors.append(json.loads(e.json()))
-            raise HTTPException(status_code=400, detail=e)
+            errors.append(json.loads(e.json())[0])
+    if errors:
+        raise HTTPException(status_code=400, detail=errors)
 
     true_deductible, true_stop_loss, true_oop_max = f(responses)
 
